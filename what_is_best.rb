@@ -14,17 +14,15 @@ winner_counts = Hash.new(0)
 favourite_things_combinations = items.combination(2).to_a
 
 favourite_things_combinations.each do |combination|
-	puts "What is better, #{combination[0]} or #{combination[1]}?" 
 	answer_array = [combination[0],combination[1]]
+	puts "What is better, #{combination[0]} or #{combination[1]}?" 
 	choice = gets.chomp
-	while true
-		unless answer_array.include?(choice)
-			puts "What is better, #{combination[0]} or #{combination[1]}?" 
-			choice = gets.chomp
-			if answer_array.include?(choice)
-				winner_counts[choice] += 1
-			end
-		end
+	winner_counts[choice] += 1 if answer_array.include?(choice)
+	until answer_array.include?(choice) 
+		answer_array = [combination[0],combination[1]]
+		puts "What is better, #{combination[0]} or #{combination[1]}?" 
+		choice = gets.chomp
+		winner_counts[choice] += 1 if answer_array.include?(choice)
 	end
 end
 
@@ -48,6 +46,6 @@ end
 
 # HW: 
 # 0) **** RUBYCONF SCHOLAR APPLICATION **** - done
-# 1) Prompt again if it isn't one of the two. - done but then it breaks after you answer correctly?
+# 1) Prompt again if it isn't one of the two. - done 
 # 2) { "Mon" => 6, "Tues" => 4, "Wed" => 2, "Thurs" => 6, "Fri" => 3, "Sat" => 6 } what if more than two winners?
 # 3) make the logic groups smaller but equally if not more readible - ?
