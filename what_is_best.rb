@@ -26,14 +26,13 @@ favourite_things_combinations.each do |combination|
 	end
 end
 
-puts winner_counts
-
 puts "~~ My Favorite Things Ranked ~~"
 
+numbers = ["1","2","3","4","5","6"]
 sorted = winner_counts.sort_by {|key,value| value}.reverse
 
 sorted.each do |ranked_item|
-	puts "-> #{ranked_item[0]} with a score of #{ranked_item[1]}"
+	puts ". #{ranked_item[0]} with a score of #{ranked_item[1]}"
 end
 
 if sorted[0][1] == sorted[1][1]
