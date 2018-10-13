@@ -1,7 +1,6 @@
 #what_is_best.rb
 
 items = []
-
 questions = ["What is your favorite movie? ","What is your favorite color? ","What is your favorite song? ","What is your favorite animal? ","What is your favorite thing to do? ","What is your favorite beverage? "]
 
 questions.each do |question|
@@ -27,12 +26,10 @@ favourite_things_combinations.each do |combination|
 end
 
 puts "~~ My Favorite Things Ranked ~~"
-
-numbers = ["1","2","3","4","5","6"]
 sorted = winner_counts.sort_by {|key,value| value}.reverse
 
 sorted.each do |ranked_item|
-	puts ". #{ranked_item[0]} with a score of #{ranked_item[1]}"
+	puts "-> #{ranked_item[0]} with a score of #{ranked_item[1]}"
 end
 
 if sorted[0][1] == sorted[1][1]
